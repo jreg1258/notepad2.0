@@ -36,7 +36,7 @@
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="../assets/js/index.js">
+  <script src="/assets/js/index.js">
 
   $(".save-note").on("click", (event)=>{
     event.preventDefault()
@@ -55,6 +55,19 @@
     $(".note-title").val("")
     $(".note-textarea").val("")
   })
+
+  function showNotes() {
+    $.ajax({url:"/api/notes", method: "GET"})
+    .then((noteData)=>{
+      
+    })
+  }
+  $(".delete-note").on("click", (event)=>{
+    event.preventDefault()
+    const delNote = $(this)
+    
+    $.ajax({url:"/api/notes/"+delNote, method: "DELETE"}).then(()=>{(alert("Note Deleted"))}
+  )
 
   function showNotes() {
     $.ajax({url:"/api/notes", method: "GET"})
