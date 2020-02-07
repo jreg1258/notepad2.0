@@ -67,7 +67,7 @@
     const delNote = $(this)
     
     $.ajax({url:"/api/notes/"+delNote, method: "DELETE"}).then(()=>{(alert("Note Deleted"))}
-  )
+  )})
 
   function showNotes() {
     $.ajax({url:"/api/notes", method: "GET"})
